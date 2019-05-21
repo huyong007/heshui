@@ -1,0 +1,15 @@
+<view class="page-body">
+    <view class="page-section tc">
+        <video id="myVideo" src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" binderror="videoErrorCallback" danmu-list="{{danmuList}}" enable-danmu danmu-btn controls></video>
+        <view class="btn-area">
+            <button bindtap="bindPlay" class="btn-area" type="warn">播放</button>
+            <button bindtap="bindPause" class="btn-area" type="primary">暂停</button>
+            <button bindtap="getResume" class="btn-area">简历</button>
+            <button bindtap="getQr" class="btn-area" type="primary">公众号</button>
+        </view>
+        <view wx:if="{{myQr}}">
+            <image bindtap="preview" class="qr" src="{{myQr}}" mode="aspectFit"></image>
+            <view class="tips" wx:if="{{myQr}}">（tips：发到微信中后可识别二维码）</view>
+        </view>
+    </view>
+</view>

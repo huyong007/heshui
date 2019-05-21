@@ -1,0 +1,14 @@
+.avatar{
+    margin:90rpx 280rpx;
+    border-radius: 100%;
+    width: 180rpx;
+    height: 180rpx;
+}
+
+.devInfo{
+    margin-top: 660rpx;
+    text-align: center;
+    color: #888888;
+    font-size:28rpx;
+
+}

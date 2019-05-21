@@ -1,0 +1,43 @@
+<!-- 打卡小程序 -->
+<view wx:if="{{logged}}">
+  <button class="modal" bind:tap="switchTap">功能开发中，你可先尝试早起打卡</button>
+</view>
+<view class="modal" wx:if="{{logged}}">
+  <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+</view>
+<view wx:if="{{true}}" class="habitContainer">
+  <view class="controlContainer">
+    <view class="addHabit" bind:tap="handleShowModal">+</view>
+    <view>=</view>
+  </view>
+  <view class="dateContainer">
+    <view>{{firstDate}}号</view>
+    <view>{{secondDate}}号</view>
+    <view>{{thirdDate}}号</view>
+    <view>{{fourthDate}}号</view>
+    <view>{{fifthDate}}号</view>
+  </view>
+  <view class="habitList" wx:for="{{habitList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
+    <text class="habitTitle">{{item.name}}</text>
+    <checkbox-group class="habitCheckBox" bindchange="checkboxChange">
+      <label class="habitCheckBox" wx:for="{{item.time}}" wx:for-index="index" wx:for-item="sitem" wx:key="index">
+        <checkbox value="{{sitem.name}},{{sitem.id}}" checked="{{sitem.checked}}" />
+      </label>
+    </checkbox-group>
+  </view>
+</view>
+<view class="modalMask" wx:if="{{showModal}}" bind:tap="handleShowModal">
+  <view class="modal" wx:if="{{showModal}}" catch:tap="catchEvent">
+    <view class="title">新建习惯</view>
+    <view class="content">
+      <form bind:submit="formSubmit" bindreset="formReset">
+        <input placeholder="习惯名称" name="habitTitle" />
+        <input placeholder="提醒问题(身体是革命的本钱)" name="habitContent" />
+        <view class="addHabitBtn">
+          <button class="btn" form-type="submit" disabled="{{submitDisabled}}">开始</button>
+          <button class="btn" form-type="reset">放弃</button>
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

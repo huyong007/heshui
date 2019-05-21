@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/punchOut/punchOut",
+    "pages/my/my",
+    "pages/devInfo/devInfo"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarTitleText": "多多喝水",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#4D4D4D",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#1AAD19",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "习惯养成",
+        "iconPath": "assets/images/icon_home.png",
+        "selectedIconPath": "assets/images/icon_home_active.png"
+      },
+      {
+        "pagePath": "pages/punchOut/punchOut",
+        "text": "早起打卡",
+        "iconPath": "assets/images/icon_customer.png",
+        "selectedIconPath": "assets/images/icon_customer_active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "assets/images/icon_info.png",
+        "selectedIconPath": "assets/images/icon_info_active.png"
+      }
+    ]
+  }
+}

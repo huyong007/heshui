@@ -1,0 +1,4 @@
+<image class="avatar" mode="scaleToFill" src="{{avatarUrl}}"></image>
+<view class="devInfo" bindtap="goTodevInfo">
+   开发者信息>
+</view>

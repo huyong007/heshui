@@ -5,11 +5,15 @@
 <view class="modal" wx:if="{{logged}}">
   <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 </view>
-<view wx:if="{{true}}" class="habitContainer">
-  <view class="controlContainer">
-    <view class="addHabit" bind:tap="handleShowModal">+</view>
-    <view>=</view>
-  </view>
+<image class='imgRunkids' src='../../assets/images/kids_run.jpg' name='Photo by Stephen Andrews on Unsplash' mode='widthFix' />
+
+<view class="title">
+  <view class="mainTitle">记录！衡量！提高！</view>
+  <view class='subTitle'>更快！更高！更强!</view>
+</view>
+<view class="imgInfo">*tips：Photo by Stephen Andrews on Unsplash</view>
+<view ></view>
+<!-- <view wx:if="{{true}}" class="habitContainer">
   <view class="dateContainer">
     <view>{{firstDate}}号</view>
     <view>{{secondDate}}号</view>
@@ -25,7 +29,7 @@
       </label>
     </checkbox-group>
   </view>
-</view>
+</view> -->
 <view class="modalMask" wx:if="{{showModal}}" bind:tap="handleShowModal">
   <view class="modal" wx:if="{{showModal}}" catch:tap="catchEvent">
     <view class="title">新建习惯</view>

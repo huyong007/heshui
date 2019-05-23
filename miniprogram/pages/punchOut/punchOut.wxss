@@ -10,17 +10,11 @@
     height: 180rpx;
     border-radius: 100%;
     text-align: center;
+    line-height: 180rpx;
 }
 
-.text {
-    margin-top:34%;
-    
-}
 .punchOutResultBlock{
     position: fixed;
     top: 40%;
     text-align: center
-}
-.punchOutResult{
-
 }

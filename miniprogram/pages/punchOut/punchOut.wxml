@@ -1,7 +1,5 @@
 <view class="container" wx:if="{{punchOutOrNot<=0}}">
-    <view class="btn" wx:if="{{!punchOut}}" loading="{{loading}}" bindtap="onTap">
-        <view class="text">打卡</view>
-    </view>
+    <view class="btn" wx:if="{{!punchOut}}" loading="{{loading}}" bindtap="onTap">打卡</view>
     <view wx:if="{{punchOut}}" class="punchOutResultBlock">
         <view class="punchOutResult">今日打卡时间</view>
         <view>{{time}}</view>

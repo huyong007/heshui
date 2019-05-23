@@ -10,6 +10,7 @@ page {
     position: absolute;
     width: 100%;
     z-index: -9999;
+    height: 200px;
 }
 
 .imgInfo {
@@ -34,6 +35,45 @@ page {
     font-family: 'Courier New', Courier, monospace;
 }
 
+.takeNotesBtn {
+    margin: 15rpx 10rpx;
+    background: #53bf1d;
+    height: 100rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15rpx;
+}
+
+.moreBtn {
+    display: inline-flex;
+    margin: 15rpx 10rpx;
+}
+
+.moreBtn .moreSetting {
+    font-size: 20rpx;
+    height: 80rpx;
+    width: 80rpx;
+    border-radius: 50%;
+    line-height: 80rpx;
+    text-align: center;
+    background-color: #53bf1d;
+
+}
+
+.moreBtn .moreAdd {
+    margin-left: 5rpx;
+    font-size: 20rpx;
+    height: 80rpx;
+    width: 80rpx;
+    border-radius: 50%;
+    line-height: 80rpx;
+    text-align: center;
+    background-color: #53bf1d;
+}
+
+
+
 .modal {
     width: 650rpx;
     overflow: hidden;
@@ -43,6 +83,7 @@ page {
     background: #FAFAFA;
     margin: -150px 50rpx 0 50rpx;
     border-radius: 3px;
+
 }
 
 /* 习惯新增按钮/时间/习惯列表 */

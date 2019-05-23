@@ -6,13 +6,16 @@
   <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 </view>
 <image class='imgRunkids' src='../../assets/images/kids_run.jpg' name='Photo by Stephen Andrews on Unsplash' mode='widthFix' />
-
 <view class="title">
-  <view class="mainTitle">记录！衡量！提高！</view>
+  <view class="mainTitle">记录！反馈！提高！</view>
   <view class='subTitle'>更快！更高！更强!</view>
 </view>
 <view class="imgInfo">*tips：Photo by Stephen Andrews on Unsplash</view>
-<view ></view>
+<view class='takeNotesBtn'>开始一个新的记录</view>
+<view class='moreBtn'>
+  <view class='moreSetting'>设置</view>
+  <view class='moreAdd'>添加</view>
+</view>
 <!-- <view wx:if="{{true}}" class="habitContainer">
   <view class="dateContainer">
     <view>{{firstDate}}号</view>

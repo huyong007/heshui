@@ -15,7 +15,7 @@ page {
 
 .imgInfo {
     font-size: 12rpx;
-    margin-top: 425rpx;
+    margin: 430rpx 10rpx 0 10rpx;
 }
 
 .title {
@@ -57,7 +57,7 @@ page {
     border-radius: 50%;
     line-height: 80rpx;
     text-align: center;
-    background-color: #53bf1d;
+    background-color: #53bf1d1e;
 
 }
 
@@ -69,7 +69,7 @@ page {
     border-radius: 50%;
     line-height: 80rpx;
     text-align: center;
-    background-color: #53bf1d;
+    background-color: #53bf1d57;
 }
 
 
@@ -83,7 +83,7 @@ page {
     background: #FAFAFA;
     margin: -150px 50rpx 0 50rpx;
     border-radius: 3px;
-
+    padding: 10rpx;
 }
 
 /* 习惯新增按钮/时间/习惯列表 */
@@ -157,7 +157,7 @@ page {
     top: 0;
     left: 0;
     z-index: 1000;
-    background: #000;
+    background: rgba(0, 0, 0, 0.445);
     opacity: 0.85;
     overflow: hidden;
 }
@@ -180,6 +180,8 @@ page {
 .modalMask .modal .title {
     text-align: center;
     padding: 10rpx;
+    font-size: 32rpx;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .modalMask .modal .content {
@@ -187,12 +189,14 @@ page {
 }
 
 input {
-    margin: 30rpx 30rpx;
-    border-bottom: #000 solid 1rpx;
+    margin: 10rpx 30rpx;
+    padding: 15rpx;
+    border-radius: 15rpx;
+    border: #53bf1d solid 1rpx;
 }
 
-input:hover {
-    border-bottom: #53bf1d solid 1rpx;
+input:active {
+    border: #53bf1d85 solid 1rpx;
 }
 
 button::after {
@@ -205,10 +209,21 @@ button::after {
 }
 
 .modalMask .modal .content .addHabitBtn .btn {
-    margin: 30rpx 30rpx;
+    margin: 0rpx 30rpx;
 }
 
 .warning {
     color: #ffffff;
     font-size: 20rpx;
+}
+
+.modalLine {
+    margin: 5rpx;
+    border: 1rpx #53bf1df8 solid;
+}
+
+.modalMask .modal .allRecordText{
+    display: block;
+    height: 100%;
+    width: 100%;
 }

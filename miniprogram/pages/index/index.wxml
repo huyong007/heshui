@@ -1,50 +1,33 @@
-<!-- 打卡小程序 -->
-<view wx:if="{{logged}}">
-  <button class="modal" bind:tap="switchTap">功能开发中，你可先尝试早起打卡</button>
-</view>
 <view class="modal" wx:if="{{logged}}">
   <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 </view>
-<image class='imgRunkids' src='../../assets/images/kids_run.jpg' name='Photo by Stephen Andrews on Unsplash' mode='widthFix' />
-<view class="title">
-  <view class="mainTitle">记录！反馈！提高！</view>
-  <view class='subTitle'>更快！更高！更强!</view>
-</view>
-<view class="imgInfo">*tips：Photo by Stephen Andrews on Unsplash</view>
-<view class='takeNotesBtn'>开始一个新的记录</view>
-<view class='moreBtn'>
-  <view class='moreSetting'>设置</view>
-  <view class='moreAdd'>添加</view>
-</view>
-<!-- <view wx:if="{{true}}" class="habitContainer">
-  <view class="dateContainer">
-    <view>{{firstDate}}号</view>
-    <view>{{secondDate}}号</view>
-    <view>{{thirdDate}}号</view>
-    <view>{{fourthDate}}号</view>
-    <view>{{fifthDate}}号</view>
+<!-- 打卡小程序 -->
+<view wx:if="{{!logged}}">
+  <image class='imgRunkids' src='../../assets/images/kids_run.jpg' name='Photo by Stephen Andrews on Unsplash' mode='widthFix' />
+  <view class="title">
+    <view class="mainTitle">记录！反馈！提高！</view>
+    <view class='subTitle'>更快！更高！更强!</view>
   </view>
-  <view class="habitList" wx:for="{{habitList}}" wx:for-index="idx" wx:for-item="item" wx:key="idx">
-    <text class="habitTitle">{{item.name}}</text>
-    <checkbox-group class="habitCheckBox" bindchange="checkboxChange">
-      <label class="habitCheckBox" wx:for="{{item.time}}" wx:for-index="index" wx:for-item="sitem" wx:key="index">
-        <checkbox value="{{sitem.name}},{{sitem.id}}" checked="{{sitem.checked}}" />
-      </label>
-    </checkbox-group>
+  <view class="imgInfo">*tips：Photo by Stephen Andrews on Unsplash</view>
+  <view class='takeNotesBtn'>开始一个新的记录</view>
+  <view class='moreBtn'>
+    <view class='moreSetting'>设置</view>
+    <view class='moreAdd' bind:tap="handleShowModal">添加</view>
   </view>
-</view> -->
-<view class="modalMask" wx:if="{{showModal}}" bind:tap="handleShowModal">
-  <view class="modal" wx:if="{{showModal}}" catch:tap="catchEvent">
-    <view class="title">新建习惯</view>
-    <view class="content">
-      <form bind:submit="formSubmit" bindreset="formReset">
-        <input placeholder="习惯名称" name="habitTitle" />
-        <input placeholder="提醒问题(身体是革命的本钱)" name="habitContent" />
-        <view class="addHabitBtn">
-          <button class="btn" form-type="submit" disabled="{{submitDisabled}}">开始</button>
-          <button class="btn" form-type="reset">放弃</button>
-        </view>
-      </form>
+  <view class="modalMask" wx:if="{{showModal}}" bind:tap="handleShowModal">
+    <view class="modal" wx:if="{{showModal}}" catch:tap="catchEvent">
+      <view class="title">添加记录项</view>
+      <view class="content">
+        <form bind:submit="formSubmit" bindreset="formReset">
+          <input placeholder="习惯名称" name="habitTitle" />
+          <!-- <view class="addHabitBtn">
+            <button class="btn" form-type="submit" disabled="{{submitDisabled}}">开始</button>
+            <button class="btn" form-type="reset">放弃</button>
+          </view> -->
+        </form>
+        <!-- <view class='modalLine'></view> -->
+        <view class='allRecordText'></view>
+      </view>
     </view>
   </view>
 </view>

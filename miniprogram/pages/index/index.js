@@ -11,7 +11,7 @@ Page({
     habitList: [
     ],
     time: [],
-    showModal: false,
+    showModal: true,
     fisrstDay: '',
     secondDay: '',
     thirdDay: '',

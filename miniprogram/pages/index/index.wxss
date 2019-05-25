@@ -177,6 +177,10 @@ page {
     border-radius: 7px;
 }
 
+.clearBtn {
+    float: right;
+}
+
 .modalMask .modal .title {
     text-align: center;
     padding: 10rpx;
@@ -193,10 +197,20 @@ input {
     padding: 15rpx;
     border-radius: 15rpx;
     border: #53bf1d solid 1rpx;
+    width: 430rpx;
+    display: inline-block;
+
 }
 
-input:active {
+input:hover {
     border: #53bf1d85 solid 1rpx;
+}
+
+
+.addImg {
+    height: 84rpx;
+    display: inline-block;
+    margin-left: -430rpx;
 }
 
 button::after {
@@ -222,7 +236,7 @@ button::after {
     border: 1rpx #53bf1df8 solid;
 }
 
-.modalMask .modal .allRecordText{
+.modalMask .modal .allRecordText {
     display: block;
     height: 100%;
     width: 100%;

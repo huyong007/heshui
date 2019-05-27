@@ -168,6 +168,7 @@ Page({
   submitRecord: function () {
     let recordArray = [];
     recordArray.push(this.data.inputRecord);
+    // wx.setStorage('recordArray','recordArray');
 
     this.setData({
       recordArray: recordArray,

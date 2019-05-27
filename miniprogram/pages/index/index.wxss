@@ -208,9 +208,10 @@ input:hover {
 
 
 .addImg {
-    height: 84rpx;
+    height: 111rpx;
     display: inline-block;
-    margin-left: -430rpx;
+    width: 85rpx;
+    margin-left: 19rpx;
 }
 
 button::after {

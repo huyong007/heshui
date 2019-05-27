@@ -20,15 +20,15 @@
       <view class="title">添加记录项</view>
       <view class="content">
         <form bind:submit="formSubmit" bindreset="formReset">
-          <input placeholder="记录名称" name="habitTitle" />
-          <image class="addImg" bind:tap="submit" mode='aspectFit' src="../../assets/images/addRecordText.png" />
+          <input placeholder="记录名称"  bindinput="bindKeyInput" name="habitTitle" />
+          <image class="addImg" bind:tap="submitRecord" mode='aspectFit' src="{{addRecordImgBtn}}" />
           <!-- <view class="addHabitBtn">
           <button class="btn" form-type="submit" disabled="{{submitDisabled}}">开始</button>
             <button class="btn" form-type="reset">放弃</button>
           </view> -->
         </form>
         <!-- <view class='modalLine'></view> -->
-        <view class='allRecordText'></view>
+        <view class='allRecordText' wx:for="{{recordArray}}" wx:for-item="item" wx:key='index'>{{item}}</view>
       </view>
     </view>
   </view>

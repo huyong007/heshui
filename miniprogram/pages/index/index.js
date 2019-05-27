@@ -12,6 +12,10 @@ Page({
     ],
     time: [],
     showModal: true,
+    addRecordImgBtn: '../../assets/images/addRecordText.png',
+    inputRecord: '',
+    recordArray: [],
+
     fisrstDay: '',
     secondDay: '',
     thirdDay: '',
@@ -129,6 +133,7 @@ Page({
 
   //新建习惯模态框提交
   formSubmit: function (e) {
+    console.log(e, 'formsubmit 提交按钮')
     if (!e.detail.value.habitTitle) {
       this.setData({
         warning: !this.data.showModal
@@ -144,13 +149,39 @@ Page({
     this.storeNewHabit(e.detail.value.habitTitle);
   },
 
+  // 输入框键盘事件开始输入:
+  bindKeyInput: function (e) {
+    if (e.detail.value) {
+      this.setData({
+        addRecordImgBtn: '../../assets/images/addRecordTexted.png',
+        inputRecord: e.detail.value,
+      })
+    } else {
+      this.setData({
+        addRecordImgBtn: '../../assets/images/addRecordText.png'
+      })
+    }
+
+  },
+
+  // 提交输入的记录项
+  submitRecord: function () {
+    let recordArray = [];
+    recordArray.push(this.data.inputRecord);
+
+    this.setData({
+      recordArray: recordArray,
+      addRecordImgBtn: '../../assets/images/addRecordText.png'
+    })
+  },
+
   // 调用云函数 存储新建的习惯进入 custom 数据库
   storeNewHabit: function (customName) {
     console.log(1);
     wx.cloud.callFunction({
       name: 'newCustom',
       data: {
-        customName:customName
+        customName: customName
       },
     })
       .then(res => {

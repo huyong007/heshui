@@ -16,19 +16,19 @@
   </view>
   <view class="modalMask" wx:if="{{showModal}}" bind:tap="handleShowModal">
     <view class="modal" wx:if="{{showModal}}" catch:tap="catchEvent">
-  <icon type="clear" size="23" color="rgb(176,176,176)" class='clearBtn' bind:tap="handleShowModal"/> 
+      <icon type="clear" size="23" color="rgb(176,176,176)" class='clearBtn' bind:tap="handleShowModal" />
       <view class="title">添加记录项</view>
       <view class="content">
         <form bind:submit="formSubmit" bindreset="formReset">
-          <input placeholder="记录名称"  bindinput="bindKeyInput" name="habitTitle" />
-          <image class="addImg" bind:tap="submitRecord" mode='aspectFit' src="{{addRecordImgBtn}}" />
-          <!-- <view class="addHabitBtn">
-          <button class="btn" form-type="submit" disabled="{{submitDisabled}}">开始</button>
-            <button class="btn" form-type="reset">放弃</button>
-          </view> -->
+          <input placeholder="记录名称" bindinput="bindKeyInput" name="record" />
+          <button class="addBtn" form-type="submit" disabled="{{submitDisabled}}">
+            <image class="addImg"   mode='aspectFit' src="{{addRecordImgBtn}}" />
+          </button>
         </form>
         <!-- <view class='modalLine'></view> -->
-        <view class='allRecordText' wx:for="{{recordArray}}" wx:for-item="item" wx:key='index'>{{item}}</view>
+        <view class='allRecordText' wx:for="{{recordArray}}" wx:for-item="item" wx:key='index'>
+          <view class="recordItem">{{item}}</view>
+        </view>
       </view>
     </view>
   </view>

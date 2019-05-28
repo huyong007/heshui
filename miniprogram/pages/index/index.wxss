@@ -207,6 +207,15 @@ input:hover {
 }
 
 
+.addBtn {
+    height: 111rpx;
+    display: inline-block;
+    width: 85rpx;
+    overflow: visible;
+    padding: 0 7rpx;
+}
+
+
 .addImg {
     height: 111rpx;
     display: inline-block;
@@ -238,7 +247,10 @@ button::after {
 }
 
 .modalMask .modal .allRecordText {
-    display: block;
-    height: 100%;
-    width: 100%;
+    display: inline-flex;
+    margin:0 20rpx;
+}
+
+.recordItem{
+    margin:0 15rpx;
 }

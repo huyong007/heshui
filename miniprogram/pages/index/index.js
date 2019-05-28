@@ -14,7 +14,8 @@ Page({
     showModal: true,
     addRecordImgBtn: '../../assets/images/addRecordText.png',
     inputRecord: '',
-    recordArray: [],
+    recordArray: ['冥想', '自学', '自学', '工作', '读书'],
+    submitDisabled: true,
 
     fisrstDay: '',
     secondDay: '',
@@ -134,19 +135,21 @@ Page({
   //新建习惯模态框提交
   formSubmit: function (e) {
     console.log(e, 'formsubmit 提交按钮')
-    if (!e.detail.value.habitTitle) {
-      this.setData({
-        warning: !this.data.showModal
-      })
-      wx.showModal({
-        content: '习惯名称必填',
-        showCancel: false,
-        confirmColor: 'red'
-      })
-      return;
-    }
+    let recordArray = this.data.recordArray;
+    console.log(recordArray, 'recordArray');
+    this.setData({
+      recordArray: recordArray,
+    })
+
+    recordArray.push(this.data.inputRecord);
+    // wx.setStorage('recordArray','recordArray');
+
+    this.setData({
+      recordArray: recordArray,
+      addRecordImgBtn: '../../assets/images/addRecordText.png'
+    })
     this.handleShowModal();
-    this.storeNewHabit(e.detail.value.habitTitle);
+    this.storeNewHabit(e.detail.value.record);
   },
 
   // 输入框键盘事件开始输入:
@@ -155,26 +158,17 @@ Page({
       this.setData({
         addRecordImgBtn: '../../assets/images/addRecordTexted.png',
         inputRecord: e.detail.value,
+        submitDisabled: false,
       })
     } else {
       this.setData({
-        addRecordImgBtn: '../../assets/images/addRecordText.png'
+        addRecordImgBtn: '../../assets/images/addRecordText.png',
+        submitDisabled:true,
       })
     }
 
   },
 
-  // 提交输入的记录项
-  submitRecord: function () {
-    let recordArray = [];
-    recordArray.push(this.data.inputRecord);
-    // wx.setStorage('recordArray','recordArray');
-
-    this.setData({
-      recordArray: recordArray,
-      addRecordImgBtn: '../../assets/images/addRecordText.png'
-    })
-  },
 
   // 调用云函数 存储新建的习惯进入 custom 数据库
   storeNewHabit: function (customName) {
@@ -256,3 +250,28 @@ Page({
 
 
 })
+
+
+// const cloud = require('wx-server-sdk')
+
+// cloud.init()
+// const db = cloud.database()
+// exports.main = async (event, context) => {
+//   const customName = event.customName
+//   const i = 0
+//   console.log(customName, 'customName');
+//   try {
+//     return await db.collection('custom').add({
+//       // data 字段表示需新增的 JSON 数据
+//       data: {
+//         name: customName,
+//         remark: '',
+//         creat_time: new Date() / 1000,
+//         update_time: new Date() / 1000,
+//         _id: i++
+//       }
+//     })
+//   } catch (e) {
+//     console.log(e)
+//   }
+// }

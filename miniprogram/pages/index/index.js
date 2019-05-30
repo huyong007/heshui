@@ -29,30 +29,7 @@ Page({
     fifthDate: '',
   },
 
-  // 获取数据库习惯列表
 
-  getDatabaseHabitList: function () {
-    let habitList = [];
-
-    const appid = wx.cloud.callFunction({
-      name: 'login',
-    }).then(res => {
-      return res.result.appid;
-    })
-    const db = wx.cloud.database()
-    db.collection('habit').where({
-      _openid: appid
-    }).get().then(res => {
-      const database = res.data;
-      database.map(e => {
-        habitList.push(e.habit);
-      })
-      this.setData({
-        habitList: habitList
-      })
-    })
-
-  },
 
 
   // 生成时间
@@ -149,7 +126,7 @@ Page({
       addRecordImgBtn: '../../assets/images/addRecordText.png'
     })
     this.handleShowModal();
-    this.storeNewHabit(e.detail.value.record);
+    this.post_record(e.detail.value.record);
   },
 
   // 输入框键盘事件开始输入:
@@ -170,13 +147,13 @@ Page({
   },
 
 
-  // 调用云函数 存储新建的习惯进入 custom 数据库
-  storeNewHabit: function (customName) {
+  // 调用云函数 存储新建的记录项到数据库
+  post_record: function (customName) {
     console.log(1);
     wx.cloud.callFunction({
-      name: 'newCustom',
+      name: 'post_record',
       data: {
-        customName: customName
+        record: record
       },
     })
       .then(res => {
@@ -185,10 +162,28 @@ Page({
           content: '新建习惯成功'
         });
         console.log(res.result) // 3
+        this.get_record();
       })
       .catch(console.error)
   },
 
+    // 获取数据库习惯列表
+
+    get_record: function () {
+      console.log('get');
+      wx.cloud.callFunction({
+        name: 'get_record',
+        data: {
+          recordQuantity: 'all'
+        },
+      })
+        .then(res => {
+        this.recordArray = res.result;
+          console.log(res.result,'res.result') // 3
+        })
+        .catch(console.error)
+  
+    },
 
   // 模态框重置
   formReset: function () {
@@ -210,7 +205,7 @@ Page({
               })
             }
           })
-          this.getDatabaseHabitList();
+          this.get_record();
         } else {
           wx.hideTabBar({
             success: res => {

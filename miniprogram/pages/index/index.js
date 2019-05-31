@@ -162,23 +162,23 @@ Page({
           content: '新建习惯成功'
         });
         console.log(res.result) // 3
-        this.get_record();
+        this.get_recordList();
       })
       .catch(console.error)
   },
 
     // 获取数据库习惯列表
 
-    get_record: function () {
+    get_recordList: function () {
       console.log('get');
       wx.cloud.callFunction({
-        name: 'get_record',
+        name: 'get_recordList',
         data: {
-          recordQuantity: 'all'
+          listQuantity:'all'
         },
       })
         .then(res => {
-        this.recordArray = res.result;
+        // this.recordArray = res.result;
           console.log(res.result,'res.result') // 3
         })
         .catch(console.error)
@@ -205,7 +205,7 @@ Page({
               })
             }
           })
-          this.get_record();
+          this.get_recordList();
         } else {
           wx.hideTabBar({
             success: res => {
@@ -235,7 +235,7 @@ Page({
       avatarUrl: e.detail.userInfo.avatarUrl,
       userInfo: e.detail.userInfo
     });
-    this.getDatabaseHabitList();
+    this.get_recordList();
     wx.showTabBar({
       success: res => {
         console.log('显示tabtabBar');

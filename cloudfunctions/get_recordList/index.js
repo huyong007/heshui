@@ -1,13 +1,15 @@
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
-const db = cloud.database();
+
 cloud.init()
 
-// 云函数入口函数
 exports.main = async (event, context) => {
+  let { userInfo, listQuantity} = event
+  let { OPENID, APPID } = cloud.getWXContext() // 这里获取到的 openId 和 appId 是可信的
+  let sum = listQuantity
   const wxContext = cloud.getWXContext()
-  let recordList = [];
-
+  let recordList = '111';
+  const db = cloud.database();
   console.log('db');
   await db.collection('record').where({
     _openid: wxContext.OPENID
@@ -16,6 +18,12 @@ exports.main = async (event, context) => {
     database.map(e => {
       recordList.push(e.habit);
     })
-    return recordList;
+
   })
+  return {
+    OPENID,
+    APPID,
+    sum,
+    recordList
+  }
 }

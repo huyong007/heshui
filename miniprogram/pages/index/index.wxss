@@ -1,256 +1,59 @@
 /**index.wxss**/
 
 page {
-    background: #ffffff;
-    width: 100%;
-    height: 100%;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+}
+
+.head {
+  position: relative;
 }
 
 .imgRunkids {
-    position: absolute;
-    width: 100%;
-    z-index: -9999;
-    height: 200px;
-}
-
-.imgInfo {
-    font-size: 12rpx;
-    margin: 430rpx 10rpx 0 10rpx;
+  width: 100%;
+  z-index: -9999;
+  height: 200px;
 }
 
 .title {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+  position: fixed;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
 }
 
 .title .mainTitle {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 32rpx;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 62rpx;
 }
 
 .title .subTitle {
-    font-size: 24rpx;
-    font-family: 'Courier New', Courier, monospace;
+  font-size: 24rpx;
+  font-family: 'Courier New', Courier, monospace;
 }
 
-.takeNotesBtn {
-    margin: 15rpx 10rpx;
-    background: #53bf1d;
-    height: 100rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 15rpx;
+.records {
+  margin: 10rpx 30rpx;
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #d9d9d9;
 }
 
-.moreBtn {
-    display: inline-flex;
-    margin: 15rpx 10rpx;
+.records>view {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.number {
+  font-weight: 700;
+  font-size: 24px;
 }
 
-.moreBtn .moreSetting {
-    font-size: 20rpx;
-    height: 80rpx;
-    width: 80rpx;
-    border-radius: 50%;
-    line-height: 80rpx;
-    text-align: center;
-    background-color: #53bf1d1e;
-
-}
-
-.moreBtn .moreAdd {
-    margin-left: 5rpx;
-    font-size: 20rpx;
-    height: 80rpx;
-    width: 80rpx;
-    border-radius: 50%;
-    line-height: 80rpx;
-    text-align: center;
-    background-color: #53bf1d57;
-}
-
-
-
-.modal {
-    width: 650rpx;
-    overflow: hidden;
-    position: fixed;
-    top: 50%;
-    left: 0;
-    background: #FAFAFA;
-    margin: -150px 50rpx 0 50rpx;
-    border-radius: 3px;
-    padding: 10rpx;
-}
-
-/* 习惯新增按钮/时间/习惯列表 */
-
-.habitContainer {
-    display: block;
-    margin: 3rpx 7rpx;
-}
-
-.controlContainer {
-    display: flex;
-    flex-direction: row-reverse;
-    background: #f6f6f6;
-    border: 1rpx solid #f6f6f6;
-    height: 100rpx;
-    align-items: center;
-    border-radius: 10rpx;
-
-}
-
-.habitContainer .controlContainer>view {
-    margin: 0 30rpx;
-
-}
-
-.dateContainer {
-    display: flex;
-    margin: 5rpx 0;
-    padding-left: 180rpx;
-    justify-content: space-around;
-    background: #f6f6f6;
-    border: 1rpx solid #f6f6f6;
-    height: 100rpx;
-    align-items: center;
-    border-radius: 10rpx;
-    font-size: 24rpx;
-}
-
-.habitList {
-    display: flex;
-    background: #f6f6f6;
-    border: 1rpx solid #f6f6f6;
-    height: 100rpx;
-    margin: 5rpx 0rpx;
-    align-items: center;
-    border-radius: 10rpx;
-}
-
-.habitList {
-    padding-left: 10rpx;
-}
-
-/* .habitTitle{
-    /* width:45%; */
-/* } */
-.habitCheckBox {
-    /* width:55%; */
-    display: flex;
-    padding-left: 58rpx;
-    justify-content: space-around;
-    justify-content: center;
-    border-radius: 10rpx;
-}
-
-/* 新建习惯模态框 */
-
-.modalMask {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background: rgba(0, 0, 0, 0.445);
-    opacity: 0.85;
-    overflow: hidden;
-}
-
-.modalMask .modal {
-    width: 650rpx;
-    height: 400rpx;
-    overflow-y: scroll;
-    overflow: hidden;
-    position: fixed;
-    top: 50%;
-    left: 0;
-    z-index: 1001;
-    background: #FAFAFA;
-    opacity: 1;
-    margin: -150px 50rpx 0 50rpx;
-    border-radius: 7px;
-}
-
-.clearBtn {
-    float: right;
-}
-
-.modalMask .modal .title {
-    text-align: center;
-    padding: 10rpx;
-    font-size: 32rpx;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
-
-.modalMask .modal .content {
-    height: 300rpx;
-}
-
-input {
-    margin: 10rpx 30rpx;
-    padding: 15rpx;
-    border-radius: 15rpx;
-    border: #53bf1d solid 1rpx;
-    width: 430rpx;
-    display: inline-block;
-
-}
-
-input:hover {
-    border: #53bf1d85 solid 1rpx;
-}
-
-
-.addBtn {
-    height: 111rpx;
-    display: inline-block;
-    width: 85rpx;
-    overflow: visible;
-    padding: 0 7rpx;
-}
-
-
-.addImg {
-    height: 111rpx;
-    display: inline-block;
-    width: 85rpx;
-    margin-left: 19rpx;
-}
-
-button::after {
-    border: none;
-}
-
-.modalMask .modal .content .addHabitBtn {
-    display: flex;
-    flex-direction: row-reverse
-}
-
-.modalMask .modal .content .addHabitBtn .btn {
-    margin: 0rpx 30rpx;
-}
-
-.warning {
-    color: #ffffff;
-    font-size: 20rpx;
-}
-
-.modalLine {
-    margin: 5rpx;
-    border: 1rpx #53bf1df8 solid;
-}
-
-.modalMask .modal .allRecordText {
-    display: inline-flex;
-    margin:0 20rpx;
-}
-
-.recordItem{
-    margin:0 15rpx;
+.number-info{
+  font-size: 12px;
+  color: grey;
 }

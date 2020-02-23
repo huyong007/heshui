@@ -2,34 +2,28 @@
   <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
 </view>
 <!-- 打卡小程序 -->
-<view wx:if="{{!logged}}">
-  <image class='imgRunkids' src='../../assets/images/kids_run.jpg' name='Photo by Stephen Andrews on Unsplash' mode='widthFix' />
+<view class='head' wx:if="{{!logged}}">
+  <image class='imgRunkids' src='../../assets/images/stone.jpg' name='Photo by Stephen Andrews on Unsplash' mode='widthFix' />
   <view class="title">
-    <view class="mainTitle">记录！反馈！提高！</view>
-    <view class='subTitle'>更快！更高！更强!</view>
+    <view class="mainTitle">喝水</view>
+    <view class='subTitle'>每日持续，遇见更好的自己。</view>
   </view>
-  <view class="imgInfo">*tips：Photo by Stephen Andrews on Unsplash</view>
-  <view class='takeNotesBtn'>开始一个新的记录</view>
-  <view class='moreBtn'>
-    <view class='moreSetting'>设置</view>
-    <view class='moreAdd' bind:tap="handleShowModal">添加</view>
-  </view>
-  <view class="modalMask" wx:if="{{showModal}}" bind:tap="handleShowModal">
-    <view class="modal" wx:if="{{showModal}}" catch:tap="catchEvent">
-      <icon type="clear" size="23" color="rgb(176,176,176)" class='clearBtn' bind:tap="handleShowModal" />
-      <view class="title">添加记录项</view>
-      <view class="content">
-        <form bind:submit="formSubmit" bindreset="formReset">
-          <input placeholder="记录名称" bindinput="bindKeyInput" name="record" />
-          <button class="addBtn" form-type="submit" disabled="{{submitDisabled}}">
-            <image class="addImg"   mode='aspectFit' src="{{addRecordImgBtn}}" />
-          </button>
-        </form>
-        <!-- <view class='modalLine'></view> -->
-        <view class='allRecordText' wx:for="{{recordArray}}" wx:for-item="item" wx:key='index'>
-          <view class="recordItem">{{item}}</view>
-        </view>
-      </view>
+  <view class='records'>
+    <view>
+      <view class="number">30</view>
+      <view class="number-info">总打卡</view>
     </view>
+    <view>
+      <view class="number">30</view>
+      <view class="number-info">最高持续</view>
+    </view>
+    <view>
+      <view class="number">30</view>
+      <view class="number-info">最近持续</view>
+    </view>
+  </view>
+  <view class='calendar'>
+    <view class='pre-btn' bind:tap="handleShowModal">上一月</view>
+    <view class='next-btn' bind:tap="handleShowModal">下一月</view>
   </view>
 </view>
